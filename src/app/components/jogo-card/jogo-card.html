@@ -1,0 +1,46 @@
+<article class="card" [class.indisponivel]="!jogo().disponivel">
+  <div class="card-img">
+    <img
+      [src]="jogo().imagem"
+      [alt]="'Capa do jogo ' + jogo().nome"
+      loading="lazy"
+      (error)="imagemQuebrada($event)"
+    />
+    <span class="badge">
+      @switch (jogo().categoria) {
+        @case ('Ação') { ⚔️ }
+        @case ('Aventura') { 🧭 }
+        @case ('RPG') { 🐉 }
+        @case ('Estratégia') { ♟️ }
+        @case ('Esporte') { ⚽ }
+        @case ('Corrida') { 🏎️ }
+        @case ('Puzzle') { 🧩 }
+        @default { 🎮 }
+      }
+      {{ jogo().categoria }}
+    </span>
+  </div>
+
+  <div class="card-corpo">
+    <h3>{{ jogo().nome }}</h3>
+    <p class="descricao">{{ jogo().descricao }}</p>
+
+    <div class="linha">
+      <span class="avaliacao">⭐ {{ jogo().avaliacao | number: '1.1-1' }}</span>
+      @if (jogo().preco === 0) {
+        <span class="preco gratis">Grátis</span>
+      } @else {
+        <span class="preco">{{ jogo().preco | currency: 'BRL' : 'symbol' : '1.2-2' }}</span>
+      }
+    </div>
+
+    <div class="linha">
+      @if (jogo().disponivel) {
+        <span class="situacao ok">● Disponível</span>
+      } @else {
+        <span class="situacao off">● Indisponível</span>
+      }
+      <a class="btn" [routerLink]="['/jogos', jogo().id]">Detalhes</a>
+    </div>
+  </div>
+</article>

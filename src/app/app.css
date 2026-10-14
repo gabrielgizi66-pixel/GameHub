@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.conteudo {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+.rodape {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borda);
+  font-size: 0.9rem;
+}

@@ -1,0 +1,9 @@
+.erro404 {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+h1 {
+  font-size: 6rem;
+  margin: 0;
+  color: var(--primaria);
+}

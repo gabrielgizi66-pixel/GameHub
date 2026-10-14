@@ -1,0 +1,22 @@
+<header class="menu">
+  <div class="menu-barra container">
+    <a routerLink="/" class="logo" (click)="fechar()">🎮 Game<span>Hub</span></a>
+
+    <button
+      class="menu-botao"
+      type="button"
+      aria-label="Abrir ou fechar o menu"
+      [attr.aria-expanded]="aberto()"
+      (click)="alternar()"
+    >
+      {{ aberto() ? '✕' : '☰' }}
+    </button>
+
+    <nav class="menu-links" [class.aberto]="aberto()">
+      <a routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }" (click)="fechar()">Início</a>
+      <a routerLink="/jogos" routerLinkActive="ativo" (click)="fechar()">Catálogo</a>
+      <a routerLink="/cadastrar" routerLinkActive="ativo" (click)="fechar()">Cadastrar</a>
+      <a routerLink="/sobre" routerLinkActive="ativo" (click)="fechar()">Sobre</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,37 @@
+<h1>Sobre o projeto</h1>
+
+<section class="bloco">
+  <h2>Descrição</h2>
+  <p>
+    O <strong>GameHub</strong> é uma plataforma de catálogo de jogos eletrônicos desenvolvida em Angular.
+    Permite visualizar jogos, consultar detalhes, cadastrar novos títulos e filtrar registros.
+    Funciona sem backend: os dados ficam em memória, centralizados em um Service.
+  </p>
+</section>
+
+<section class="bloco">
+  <h2>Identificação</h2>
+  <p><strong>Aluno:</strong> {{ aluno }}</p>
+  <p><strong>Disciplina:</strong> {{ disciplina }}</p>
+</section>
+
+<section class="bloco">
+  <h2>Tecnologias utilizadas</h2>
+  <div class="tags">
+    @for (t of tecnologias; track t) {
+      <span class="tag">{{ t }}</span>
+    }
+  </div>
+</section>
+
+<section class="bloco">
+  <h2>Função de cada parte</h2>
+  <div class="funcoes">
+    @for (f of funcoes; track f.titulo) {
+      <div class="funcao">
+        <h3>{{ f.titulo }}</h3>
+        <p>{{ f.texto }}</p>
+      </div>
+    }
+  </div>
+</section>

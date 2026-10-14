@@ -1,0 +1,54 @@
+<a routerLink="/jogos" class="voltar">← Voltar ao catálogo</a>
+
+@if (jogo(); as j) {
+  <article class="detalhes">
+    <img [src]="j.imagem" [alt]="'Capa do jogo ' + j.nome" (error)="imagemQuebrada($event)" />
+
+    <div class="info">
+      <h1>{{ j.nome }}</h1>
+
+      <p class="categoria">
+        @switch (j.categoria) {
+          @case ('Ação') { ⚔️ }
+          @case ('Aventura') { 🧭 }
+          @case ('RPG') { 🐉 }
+          @case ('Estratégia') { ♟️ }
+          @case ('Esporte') { ⚽ }
+          @case ('Corrida') { 🏎️ }
+          @case ('Puzzle') { 🧩 }
+          @default { 🎮 }
+        }
+        {{ j.categoria }}
+      </p>
+
+      <p class="descricao">{{ j.descricao }}</p>
+
+      <ul class="dados">
+        <li><strong>ID:</strong> {{ j.id }}</li>
+        <li><strong>Avaliação:</strong> ⭐ {{ j.avaliacao | number: '1.1-1' }} / 5</li>
+        <li>
+          <strong>Preço:</strong>
+          @if (j.preco === 0) {
+            <span class="gratis">Grátis</span>
+          } @else {
+            {{ j.preco | currency: 'BRL' : 'symbol' : '1.2-2' }}
+          }
+        </li>
+        <li>
+          <strong>Situação:</strong>
+          @if (j.disponivel) {
+            <span class="ok">● Disponível</span>
+          } @else {
+            <span class="off">● Indisponível</span>
+          }
+        </li>
+      </ul>
+    </div>
+  </article>
+} @else {
+  <div class="vazio">
+    <h2>Jogo não encontrado</h2>
+    <p>Não existe nenhum jogo com o ID informado.</p>
+    <a routerLink="/jogos" class="btn">Ir para o catálogo</a>
+  </div>
+}

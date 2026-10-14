@@ -1,0 +1,55 @@
+.voltar {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--acento);
+  text-decoration: none;
+}
+.voltar:hover {
+  text-decoration: underline;
+}
+.detalhes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+.detalhes img {
+  width: 100%;
+  border-radius: 14px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+h1 {
+  margin: 0 0 0.5rem;
+}
+.categoria {
+  color: var(--primaria);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+.descricao {
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+.dados {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.gratis,
+.ok {
+  color: var(--acento);
+}
+.off {
+  color: var(--erro);
+}
+@media (max-width: 760px) {
+  .detalhes {
+    grid-template-columns: 1fr;
+  }
+}

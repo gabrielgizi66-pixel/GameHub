@@ -1,0 +1,80 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primaria);
+  box-shadow: 0 12px 30px rgba(124, 92, 255, 0.25);
+}
+.card.indisponivel .card-img img {
+  filter: grayscale(0.8);
+  opacity: 0.7;
+}
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+.card-img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.card:hover .card-img img {
+  transform: scale(1.05);
+}
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(15, 16, 32, 0.85);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.card-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  flex: 1;
+}
+h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+.descricao {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  flex: 1;
+}
+.linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.preco {
+  font-weight: 700;
+}
+.preco.gratis {
+  color: var(--acento);
+}
+.situacao {
+  font-size: 0.85rem;
+}
+.situacao.ok {
+  color: var(--acento);
+}
+.situacao.off {
+  color: var(--erro);
+}

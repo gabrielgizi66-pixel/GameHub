@@ -1,0 +1,28 @@
+.formulario {
+  max-width: 760px;
+  display: grid;
+  gap: 1.1rem;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+.linha-dupla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+.check input {
+  width: auto;
+}
+.botoes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,66 @@
+<h1>➕ Cadastrar novo jogo</h1>
+
+<form class="formulario" #form="ngForm" (ngSubmit)="salvar(form)" novalidate>
+  <div class="campo">
+    <label for="nome">Nome *</label>
+    <input id="nome" name="nome" type="text" required [(ngModel)]="nome" #nomeCtl="ngModel" placeholder="Ex.: Shadow Blade" />
+    @if (nome.trim() === '' && (nomeCtl.touched || enviado)) {
+      <small class="erro">O nome é obrigatório.</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="descricao">Descrição</label>
+    <textarea id="descricao" name="descricao" rows="4" [(ngModel)]="descricao" placeholder="Fale um pouco sobre o jogo"></textarea>
+  </div>
+
+  <div class="linha-dupla">
+    <div class="campo">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoria" [(ngModel)]="categoria">
+        @for (cat of categorias; track cat) {
+          <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="preco">Preço (R$) *</label>
+      <input id="preco" name="preco" type="number" step="0.01" min="0" required [(ngModel)]="preco" #precoCtl="ngModel" placeholder="0 = grátis" />
+      @if (precoCtl.invalid && (precoCtl.touched || enviado)) {
+        @if (precoCtl.errors?.['min']) {
+          <small class="erro">O preço não pode ser negativo.</small>
+        } @else {
+          <small class="erro">Informe o preço (use 0 para jogos gratuitos).</small>
+        }
+      }
+    </div>
+
+    <div class="campo">
+      <label for="avaliacao">Avaliação (0 a 5) *</label>
+      <input id="avaliacao" name="avaliacao" type="number" step="0.1" min="0" max="5" required [(ngModel)]="avaliacao" #avaliacaoCtl="ngModel" />
+      @if (avaliacaoCtl.invalid && (avaliacaoCtl.touched || enviado)) {
+        @if (avaliacaoCtl.errors?.['min'] || avaliacaoCtl.errors?.['max']) {
+          <small class="erro">A avaliação deve estar entre 0 e 5.</small>
+        } @else {
+          <small class="erro">Informe a avaliação.</small>
+        }
+      }
+    </div>
+  </div>
+
+  <div class="campo">
+    <label for="imagem">URL da imagem</label>
+    <input id="imagem" name="imagem" type="text" [(ngModel)]="imagem" placeholder="https://... (opcional)" />
+  </div>
+
+  <label class="check">
+    <input name="disponivel" type="checkbox" [(ngModel)]="disponivel" />
+    Jogo disponível
+  </label>
+
+  <div class="botoes">
+    <button type="submit" class="btn">Salvar jogo</button>
+    <button type="reset" class="btn btn-sec" (click)="enviado = false">Limpar</button>
+  </div>
+</form>

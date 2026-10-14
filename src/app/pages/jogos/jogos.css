@@ -1,0 +1,18 @@
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.filtros .campo {
+  flex: 1 1 220px;
+}
+.contagem {
+  color: var(--texto-suave);
+  margin: 0 0 1rem;
+}
